@@ -13,6 +13,10 @@ export const ADD_USER = 'ADD_USER'
 /**
  * question actions
  */
-export const SAVE_ANSWER = 'SAVE_ANSWER'
-export const ADD_QUESTION = 'ADD_QUESTION'
 export const RECEIVE_QUESTIONS = 'RECEIEVE_QUESTIONS'
+
+/**
+ * shared actions
+ */
+export const ADD_QUESTION = 'ADD_QUESTION'
+export const SAVE_ANSWER = 'SAVE_ANSWER'
