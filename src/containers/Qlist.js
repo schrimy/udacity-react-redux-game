@@ -7,17 +7,21 @@ const Qlist = (props) => {
     console.log('Qlist props: ', props.qId)
 
     return(
-        <ul>
-            {props.qId.map((id) => (
-                <li key={id}>
-                    <Qcard id={id} />
-                </li>
-            ))}
-        </ul>
+        <div className='q-container'>
+            <button className='btn to-answer'>Unanswered</button>
+            <button className='btn answered'>Answered</button>
+            <ul className='q-list'>
+                {props.qId.map((id) => (
+                    <li key={id}>
+                        <Qcard id={id} />
+                    </li>
+                ))}
+            </ul>
+        </div>
     )
 }
 
-function mapStateToProps({questions}) {
+const mapStateToProps = ({questions}) => {
     //grab id keys of questions state to pass into card so card can grab q info from state
     return {
         qId: Object.keys(questions)

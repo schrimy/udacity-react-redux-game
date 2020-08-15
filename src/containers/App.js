@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../App.css'
+import '../styles/app.css'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 /**
