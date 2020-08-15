@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import '../App.css'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
+/**
+ * Components
+ */
+import Qlist from './Qlist'
 
 class App extends Component {
   componentDidMount() {
@@ -13,6 +17,7 @@ class App extends Component {
     return (
       <div className="App">
         Hello World
+        <Qlist />
       </div>
     )
   }
