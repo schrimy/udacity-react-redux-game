@@ -3,6 +3,7 @@ import { RECEIVE_USERS, SAVE_ANSWER, ADD_QUESTION } from '../constants/actionTyp
 const users = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_USERS:
+            console.log('user reducer receive: ', action)
             return {
                 ...state,
                 ...action.users
