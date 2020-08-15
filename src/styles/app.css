@@ -8,13 +8,24 @@ body {
     box-sizing: border-box;
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .nav {
     display: flex;
     flex-direction: row;
     font-weight: bold;
+    margin-left: 25px;
 }
 
 .nav p {
     margin-left: 10px;
     cursor: pointer;
+}
+
+.user-info {
+    margin: 15px 25px 0 0;
 }

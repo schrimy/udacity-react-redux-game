@@ -8,6 +8,7 @@ const Avatar = (props) => {
 }
 
 const mapStateToProps = ({users}, {id}) => {
+    console.log('Avatar map state:', users)
     return {
         img: users[id].avatarURL
     }
