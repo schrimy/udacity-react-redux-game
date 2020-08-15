@@ -1,12 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Avatar from './Avatar'
 
 const Qcard = (props) => {
     const { author, optionText } = props
 
     return(
         <div className='q-card'>
-            {`${author} asks: ${optionText}`}
+            <Avatar id={author} />
+            <section>
+                <p>{author} asks:</p>
+                <p>Would you rather</p>
+                <p>{optionText}</p>
+            </section>
         </div>
     )
 }

@@ -1,11 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Qcard from '../components/Qcard'
+import Qcard from './Qcard'
 
 const Qlist = (props) => {
-    console.log('Qlist props: ', props.qId)
-
     return(
         <div className='q-container'>
             <button className='btn to-answer'>Unanswered</button>

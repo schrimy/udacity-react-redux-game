@@ -6,6 +6,10 @@ body {
     box-sizing: border-box;
 }
 
+/**
+Home / root page
+*/
+
 .q-container {
     display: grid;
     grid-template-rows: repeat(2, auto);
@@ -22,6 +26,26 @@ body {
     list-style: none;
     grid-area: qs;
     padding: 0;
+    margin: 0;
+}
+
+.q-card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 5px 0 5px;
+}
+
+.q-card section {
+    margin-left: 10px;;
+}
+
+.avatar {
+    margin: auto;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
 }
 
 .btn {
