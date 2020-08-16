@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import '../styles/app.css'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
@@ -14,17 +14,13 @@ class App extends Component {
     //get initial data
     this.props.dispatch(handleInitialData())
   }
-  //TODO:try the alternative in userInfo insated of checking authedUser set here
+  
   render() {
     return (
       <div className="App">
         <header className='header'>
           <Nav />
-          {this.props.loggedIn
-            ? null
-            : <Fragment>
-                <UserInfo />
-              </Fragment>}
+          <UserInfo />
         </header>
         <Qlist />
       </div>

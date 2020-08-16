@@ -5,10 +5,8 @@ import Avatar from './Avatar'
 
 class UserInfo extends Component {
     render() {
-
         const { user } = this.props
-        console.log('userinfo user id:', user)
-        //TODO: alternatively, place in default image if no authedUser set yet
+
         return(
             <div className='user-info'>
                 <Avatar id={user} />
@@ -19,7 +17,6 @@ class UserInfo extends Component {
 }
 
 const mapStateToProps = ({authedUser}) => {
-    console.log('user info:', authedUser)
     return {
         user: authedUser
     }
