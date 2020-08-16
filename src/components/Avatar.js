@@ -8,6 +8,7 @@ const Avatar = (props) => {
     )
 }
 
+//if no user id is passed in then use default image otherwise grab avatar url from store
 const mapStateToProps = ({users}, {id}) => {
     return {
         img: id !== null ? users[id].avatarURL : defaultImg

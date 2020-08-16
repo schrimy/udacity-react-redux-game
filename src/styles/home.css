@@ -41,6 +41,10 @@
     cursor: pointer;
 }
 
+.btn-active {
+    background-color: #ba04f1;
+}
+
 .to-answer {
     grid-area: btnOne;
 }

@@ -15,6 +15,7 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }
   
+  //TODO: make sure main components are not mounting until init data is loaded
   render() {
     return (
       <div className="App">
@@ -22,7 +23,9 @@ class App extends Component {
           <Nav />
           <UserInfo />
         </header>
-        <Qlist />
+        {this.props.loggedIn === true
+          ? <Qlist />
+          : null}
       </div>
     )
   }
@@ -31,7 +34,7 @@ class App extends Component {
 //check that state has been set before trying to load images etc via seeing if authedUSer is set in async intial data action
 const mapStateToProps = ({authedUser}) => {
   return {
-    loggedIn: authedUser === null
+    loggedIn: authedUser !== null
   }
 }
 

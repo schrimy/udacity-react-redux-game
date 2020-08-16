@@ -17,5 +17,8 @@ export const handleInitialData = () => {
             dispatch(receiveQuestions(questions))
             dispatch(loginUser(AUTHED_ID))
         })
+        .catch(err => {
+            console.log('Error retrieving data:', err)
+        })
     }
 }
