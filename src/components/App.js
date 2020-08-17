@@ -8,6 +8,7 @@ import { handleInitialData } from '../actions/shared'
 import Qlist from './Qlist'
 import Nav from './Nav'
 import UserInfo from './UserInfo'
+import Qpage from './Qpage'
 
 class App extends Component {
   componentDidMount() {
@@ -16,6 +17,7 @@ class App extends Component {
   }
   
   //TODO: make sure main components are not mounting until init data is loaded
+  //TODO: use routing for Qpage id instead of props
   render() {
     return (
       <div className="App">
@@ -24,7 +26,7 @@ class App extends Component {
           <UserInfo />
         </header>
         {this.props.loggedIn === true
-          ? <Qlist />
+          ? <Qpage qId='vthrdm985a262al8qx3do'/>
           : null}
       </div>
     )

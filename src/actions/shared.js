@@ -7,7 +7,7 @@ import { loginUser } from './authedUser'
 //TODO: set up thunk action creator to dispatch info of save answer and new q to users and questions
 
 //mock up an authorised user
-const AUTHED_ID = 'tylermcginnis'
+const AUTHED_ID = 'sarahedo'
 
 export const handleInitialData = () => {
     return (dispatch) => {
