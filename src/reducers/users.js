@@ -12,8 +12,18 @@ const users = (state = {}, action) => {
                //TODO:add q id to users questions array
             }
         case SAVE_ANSWER:
+            const { authedUser, qid, answer } = action.answerInfo
+
             return {
-                //TODO:add q id and option selected to answers list
+                //TODO:add qid and option answer selected to userId answers list
+                ...state,
+                [authedUser]: {
+                    ...state[authedUser],
+                    answers: {
+                        ...state[authedUser].answers,
+                        [qid]: answer
+                    }
+                }
             }
         default:
             return state

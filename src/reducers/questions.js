@@ -12,8 +12,18 @@ const questions = (state = {}, action) => {
                 //TODO:add question onto q list
             }
         case SAVE_ANSWER:
+            const { qid, answer, authedUser } = action.answerInfo
+
             return {
-                //TODO:save userId on to question option that was selected
+                //TODO:save userId on to question, via qid, option, via option answer, that was selected
+                ...state,
+                [qid]: {
+                    ...state[qid],
+                    [answer]: {
+                        ...state[qid][answer],
+                        votes: state[qid][answer].votes.concat([authedUser])
+                    }
+                }
             }
         default:
             return state
