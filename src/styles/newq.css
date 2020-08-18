@@ -17,4 +17,5 @@
 
 .submit-btn {
     font-weight: bold;
+    cursor: pointer;
 }

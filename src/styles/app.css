@@ -23,9 +23,11 @@ body {
     margin-left: 25px;
 }
 
-.nav p {
+.nav-btn {
     margin-left: 10px;
     cursor: pointer;
+    text-decoration: none;
+    color: #000;
 }
 
 .user-info {

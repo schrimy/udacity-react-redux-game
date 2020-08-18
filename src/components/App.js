@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import '../styles/app.css'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
+import { BrowserRouter, Route } from 'react-router-dom'
+import LoadingBar from 'react-redux-loading'
 /**
  * Components
  */
@@ -18,18 +20,24 @@ class App extends Component {
   }
   
   //TODO: make sure main components are not mounting until init data is loaded
-  //TODO: use routing for Qpage id instead of props
   render() {
     return (
-      <div className="App">
-        <header className='header'>
-          <Nav />
-          <UserInfo />
-        </header>
-        {this.props.loggedIn === true
-          ? <NewQ />
-          : null}
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <LoadingBar />
+          <header className='header'>
+            <Nav />
+            <UserInfo />
+          </header>
+          {this.props.loading === true
+            ? <Fragment>
+                <Route path='/' exact component={Qlist} />
+                <Route path='/questions/:question_id' component={Qpage} />
+                <Route path='/add' component={NewQ} />
+              </Fragment>
+            : null}
+        </div>
+      </BrowserRouter>
     )
   }
 }
@@ -37,7 +45,7 @@ class App extends Component {
 //check that state has been set before trying to load images etc via seeing if authedUSer is set in async intial data action
 const mapStateToProps = ({authedUser}) => {
   return {
-    loggedIn: authedUser !== null
+    loading: authedUser !== null
   }
 }
 

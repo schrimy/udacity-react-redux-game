@@ -23,11 +23,11 @@ class Qpage extends Component {
 
     //compare users answers against displayed question id, if a match show which option the user selected
     checkUserAnswers = () => {
-        const { userAnswers, qId } = this.props
+        const { userAnswers, question_id } = this.props
         //grab keys from answers object so it can be iterable and check if it's been answered by user
         Object.keys(userAnswers).forEach(answer => {
-            if(answer === qId) {
-                this.displayAnsweredInfo(userAnswers[qId])
+            if(answer === question_id) {
+                this.displayAnsweredInfo(userAnswers[question_id])
                 //disable click events on option boxes
                 document.querySelectorAll('.option-box').forEach(box => {
                     box.classList.add('no-click')
@@ -78,12 +78,16 @@ class Qpage extends Component {
     }
 }
 
-const mapStateToProps = ({ authedUser, users, questions }, { qId }) => {
+const mapStateToProps = ({ authedUser, users, questions }, props) => {
+    //grab param from url / router that passes the question id ':question_id'
+    const { question_id } = props.match.params
+
     return {
+        question_id,
         authedUser,
         userAnswers: users[authedUser].answers,
-        qToShow: questions[qId],
-        votesTotal: questions[qId].optionOne.votes.length + questions[qId].optionTwo.votes.length
+        qToShow: questions[question_id],
+        votesTotal: questions[question_id].optionOne.votes.length + questions[question_id].optionTwo.votes.length
     }
 }
 
