@@ -1,5 +1,6 @@
 import { RECEIVE_QUESTIONS, SAVE_ANSWER, ADD_QUESTION } from '../constants/actionTypes'
 
+//state here = quesions slice
 const questions = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_QUESTIONS:
@@ -8,14 +9,18 @@ const questions = (state = {}, action) => {
                 ...action.questions
             }
         case ADD_QUESTION:
+            //concat new q onto existing state (questions)
             return {
-                //TODO:add question onto q list
+                ...state,
+                [action.newQ.id]: {
+                    ...action.newQ
+                }
             }
         case SAVE_ANSWER:
             const { qid, answer, authedUser } = action.answerInfo
 
             return {
-                //TODO:save userId on to question, via qid, option, via option answer, that was selected
+                //save userId on to question, via qid, option, via option answer, that was selected
                 ...state,
                 [qid]: {
                     ...state[qid],

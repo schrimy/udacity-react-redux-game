@@ -9,6 +9,7 @@ import Qlist from './Qlist'
 import Nav from './Nav'
 import UserInfo from './UserInfo'
 import Qpage from './Qpage'
+import NewQ from './NewQ'
 
 class App extends Component {
   componentDidMount() {
@@ -26,7 +27,7 @@ class App extends Component {
           <UserInfo />
         </header>
         {this.props.loggedIn === true
-          ? <Qpage qId='vthrdm985a262al8qx3do'/>
+          ? <NewQ />
           : null}
       </div>
     )
