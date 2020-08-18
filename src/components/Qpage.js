@@ -28,11 +28,14 @@ class Qpage extends Component {
         Object.keys(userAnswers).forEach(answer => {
             if(answer === qId) {
                 this.displayAnsweredInfo(userAnswers[qId])
+                //disable click events on option boxes
+                document.querySelectorAll('.option-box').forEach(box => {
+                    box.classList.add('no-click')
+                })
             }
         })
     }
 
-    //TODO:if answered make sure options have no button attributes eg pointer
     //if question has been answered bu authedUser then show which option selected and stats
     displayAnsweredInfo = (optionSelected) => {
         document.querySelector(`#${optionSelected}`).classList.add('selected-option')

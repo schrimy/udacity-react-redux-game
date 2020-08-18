@@ -14,3 +14,7 @@
 .selected-option {
     background-color: #ba04f1;
 }
+
+.no-click {
+    pointer-events: none;
+}

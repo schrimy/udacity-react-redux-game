@@ -6,7 +6,7 @@ const OptionBox = (props) => {
             {props.info.text}
             <div className='option-stats'>
                 <p>{props.info.votes.length} / {props.votesNum}</p>
-                <p>{(props.info.votes.length / props.votesNum) * 100}%</p>
+                <p>{Math.round((props.info.votes.length / props.votesNum) * 100)}%</p>
             </div>
         </div>
     )
