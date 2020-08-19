@@ -8,7 +8,7 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 //also, when a q is answered save user id to option of the question and question answered with option selected to users
 
 //mock up an authorised user
-const AUTHED_ID = 'sarahedo'
+const AUTHED_ID = 'johndoe'
 
 /**
  * async / thunk action creators

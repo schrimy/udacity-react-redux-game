@@ -1,14 +1,16 @@
 import React from  'react'
 import { connect } from 'react-redux'
 
+import UserCard from './UserCard'
+
 const LeaderBoard = (props) => {
     const { usersList } = props
 
     return(
-        <div>
+        <div className='leaderboard'>
             <ul>
                 {usersList.map((user) => (
-                    <li key={user.id}>{user.name}</li>
+                    <UserCard key={user.id} id={user.id} />
                 ))}
             </ul>
         </div>

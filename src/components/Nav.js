@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+//TODO: change Link to NavLink
 const Nav = () => {
     return(
         <nav className='nav'>
