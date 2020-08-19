@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { handleOptionSelected } from '../actions/shared'
 
 import Avatar from './Avatar'
@@ -57,7 +58,13 @@ class Qpage extends Component {
     }
 
     render() {
-        const { qToShow, votesTotal } = this.props
+        const { qToShow } = this.props
+        //if question doesn't exist redirect to 404
+        if(qToShow === undefined) {
+            return <Redirect to='/404' />
+        }
+
+        const votesTotal = qToShow.optionOne.votes.length + qToShow.optionTwo.votes.length
         
         return(
             <div className='qpage-container'>
@@ -86,8 +93,7 @@ const mapStateToProps = ({ authedUser, users, questions }, props) => {
         question_id,
         authedUser,
         userAnswers: users[authedUser].answers,
-        qToShow: questions[question_id],
-        votesTotal: questions[question_id].optionOne.votes.length + questions[question_id].optionTwo.votes.length
+        qToShow: questions[question_id]
     }
 }
 
