@@ -26,9 +26,9 @@ class NewQ extends Component {
             optionOneText: optionOne,
             optionTwoText: optionTwo
         }))
-        .then(() => {
+        //.then(() => {
             this.props.history.push('/')
-        })
+        //})
 
         this.setState(() => ({
             optionOne: '',

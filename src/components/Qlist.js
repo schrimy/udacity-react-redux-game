@@ -6,19 +6,12 @@ import Qcard from './Qcard'
 class Qlist extends Component {
     //TODO: does state get set to blank when user logs out?
     state = {
-        displayQs: []
+        answered: false
     }
 
-    //set initial questions list
-    //if logged out show full q list, logged in = unanswered qs, via userAnswers prop
+    //set initial active button if logged in
     componentDidMount() {
-        const { qIds, userAnswers } = this.props
-
-        this.setState(() => ({
-            displayQs: userAnswers === null ? qIds : qIds.filter(this.answerChecker)
-        }))
-
-        if(userAnswers !== null) {
+        if(this.props.userAnswers !== null) {
             document.querySelector('.to-answer').classList.add('btn-active')
         }
     }
@@ -43,10 +36,8 @@ class Qlist extends Component {
         evt.target.classList.add('btn-active')
         evt.target.nextElementSibling.classList.remove('btn-active')
 
-        const { qIds } = this.props
-
         this.setState(() => ({
-            displayQs: qIds.filter(this.answerChecker)
+            answered: false
         }))
     }
 
@@ -57,15 +48,23 @@ class Qlist extends Component {
         evt.target.classList.add('btn-active')
         evt.target.previousElementSibling.classList.remove('btn-active')
 
-        const { userAnswers } = this.props
-
         this.setState(() => ({
-            displayQs: userAnswers
+            answered: true
         }))
     }
 
     render() {
-        const { displayQs } = this.state
+        const { qIds, userAnswers } = this.props
+        const { answered } = this.state
+        let displayQs = ''
+
+        if(!answered) {
+            //if logged out show full q list, logged in = unanswered qs, via userAnswers prop
+            displayQs = userAnswers === null ? qIds : qIds.filter(this.answerChecker)
+        } else {
+            //show users answered questions
+            displayQs = userAnswers
+        }
 
         return(
             <div className='q-container'>
