@@ -12,7 +12,9 @@ const questions = (state = {}, action) => {
             //concat new q onto existing state (questions)
             return {
                 ...state,
-                [action.newQ.id]: action.newQ
+                [action.newQ.id]: {
+                    ...action.newQ
+                }
             }
         case SAVE_ANSWER:
             const { qid, answer, authedUser } = action.answerInfo

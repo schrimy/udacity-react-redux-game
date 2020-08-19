@@ -24,19 +24,16 @@ class NewQ extends Component {
         this.props.dispatch(handleNewQ({
             author,
             optionOneText: optionOne,
-            optionTwoText: optionTwo,
-            callback: this.newQuestionAdded
+            optionTwoText: optionTwo
         }))
+        .then(() => {
+            this.props.history.push('/')
+        })
 
         this.setState(() => ({
             optionOne: '',
             optionTwo: ''
         }))
-    }
-
-    //callback to be sent to async action, to be called when new q is added
-    newQuestionAdded = () => {
-        this.props.history.push('/')
     }
 
     render() {

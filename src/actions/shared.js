@@ -53,7 +53,6 @@ export const handleNewQ = (newQuestionInfo) => {
         return _saveQuestion(newQuestionInfo)
         .then((newQ) => {
             dispatch(addQuestion(newQ))
-            newQuestionInfo.callback()
         })
         .then(() => dispatch(hideLoading()))
         .catch(err => {

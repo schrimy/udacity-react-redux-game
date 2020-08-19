@@ -12,6 +12,7 @@ import Nav from './Nav'
 import UserInfo from './UserInfo'
 import Qpage from './Qpage'
 import NewQ from './NewQ'
+import Leaderboard from './Leaderboard'
 
 class App extends Component {
   componentDidMount() {
@@ -34,6 +35,7 @@ class App extends Component {
                 <Route path='/' exact component={Qlist} />
                 <Route path='/questions/:question_id' component={Qpage} />
                 <Route path='/add' component={NewQ} />
+                <Route path='/leaderboard' component={Leaderboard} />
               </Fragment>
             : null}
         </div>
