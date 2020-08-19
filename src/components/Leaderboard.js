@@ -2,14 +2,16 @@ import React, { Component } from  'react'
 import { connect } from 'react-redux'
 
 class LeaderBoard extends Component {
-    componentDidMount() {
-        const { users } = this.props
-    }
-
     render() {
+        const { usersList } = this.props
+
         return(
             <div>
-                LeaderBoard
+                <ul>
+                    {Object.keys(usersList).map((user) => (
+                        <li key={user}>{user}</li>
+                    ))}
+                </ul>
             </div>
         )
     }
@@ -17,7 +19,7 @@ class LeaderBoard extends Component {
 
 const mapStateToProps = ({ users }) => {
     return {
-        users
+        usersList: users
     }
 }
 
