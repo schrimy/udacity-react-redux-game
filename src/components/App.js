@@ -14,6 +14,7 @@ import Qpage from './Qpage'
 import NewQ from './NewQ'
 import Leaderboard from './Leaderboard'
 import FourOfour from './FourOfour'
+import Login from './Login'
 
 class App extends Component {
   componentDidMount() {
@@ -41,7 +42,7 @@ class App extends Component {
                   <Route component={FourOfour}/>
                 </Switch>
               </Fragment>
-            : null}
+            : <Login />}
         </div>
     )
   }

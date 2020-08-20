@@ -1,16 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { logoutUser } from '../actions/authedUser'
 
 import Avatar from './Avatar'
 
 class UserInfo extends Component {
+    handleLogOut = (evt) => {
+        evt.preventDefault()
+        this.props.dispatch(logoutUser())
+    }
+
     render() {
         const { user } = this.props
 
         return(
             <div className='user-info'>
                 <Avatar id={user} />
-                <p>Logged in: {user}</p>
+                {user !== null && (
+                    <Fragment>
+                        <p>Logged in: {user}</p>
+                        <button onClick={this.handleLogOut}>Log out</button>
+                    </Fragment>
+                )}
             </div>
         )
     }
