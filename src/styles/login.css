@@ -10,3 +10,8 @@
     text-align: center;
     padding: 15px;
 }
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+}

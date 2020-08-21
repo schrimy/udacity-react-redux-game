@@ -2,6 +2,7 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
+    password: 'one',
     avatarURL: 'https://tylermcginnis.com/would-you-rather/sarah.jpg',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
@@ -14,6 +15,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
+    password: 'two',
     avatarURL: 'https://tylermcginnis.com/would-you-rather/tyler.jpg',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
@@ -24,6 +26,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
+    password: 'three',
     avatarURL: 'https://tylermcginnis.com/would-you-rather/dan.jpg',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
