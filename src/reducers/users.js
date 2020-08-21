@@ -36,12 +36,12 @@ const users = (state = {}, action) => {
                 }
             }
         case ADD_USER:
-            const { name, username, password } = action.newUser
+            const { name, password } = action.newUser
 
             return {
                 ...state,
-                [username]: {
-                    id: username,
+                [action.userName]: {
+                    id: action.userName,
                     name,
                     password,
                     avatarURL: 'https://tylermcginnis.com/would-you-rather/sarah.jpg',

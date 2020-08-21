@@ -118,6 +118,8 @@ let questions = {
   },
 }
 
+//TODO: add in save new user and format methods
+
 function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
@@ -132,6 +134,17 @@ export function _getQuestions () {
   return new Promise((res, rej) => {
     setTimeout(() => res({...questions}), 1000)
   })
+}
+
+function formatUser ({ name, username, password}) {
+  return {
+    id: username,
+    name,
+    password,
+    avatarURL: '',
+    answers: {},
+    questions: []
+  }
 }
 
 function formatQuestion ({ optionOneText, optionTwoText, author }) {
@@ -201,5 +214,22 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
 
       res()
     }, 500)
+  })
+}
+
+export function _saveNewUser(newUser) {
+  return new Promise((res, rej) => {
+    const id = newUser.username
+    const formattedUser = formatUser(newUser)
+
+    setTimeout(() => {
+      users = {
+        ...users,
+        [id]: {
+          ...formattedUser
+        }
+      }
+      res(formattedUser)
+    }, 1000)
   })
 }

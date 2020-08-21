@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from '../actions/authedUser'
-import { adddUser } from '../actions/users'
+import { handleNewUser } from '../actions/users'
 
 class Login extends Component {
     state = {
@@ -32,18 +32,21 @@ class Login extends Component {
         evt.preventDefault()
         const { newName, newUserName, newPassword } = this.state
 
-        this.props.dispatch(adddUser({
+        this.props.dispatch(handleNewUser({
             name: newName,
             username: newUserName,
             password: newPassword
         }))
-        
-        this.backToLogin(evt)
+        .then(() => {
+            this.backToLogin()
+        })
     }
 
     //render login fields
     backToLogin = (evt) => {
-        evt.preventDefault()
+        if(evt !== undefined) {
+            evt.preventDefault()
+        }
 
         this.setState(() => ({
             status: 'login',
