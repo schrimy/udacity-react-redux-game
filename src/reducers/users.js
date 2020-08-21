@@ -1,4 +1,4 @@
-import { RECEIVE_USERS, SAVE_ANSWER, ADD_QUESTION } from '../constants/actionTypes'
+import { RECEIVE_USERS, SAVE_ANSWER, ADD_QUESTION, ADD_USER } from '../constants/actionTypes'
 
 //state here = users slice of store state
 const users = (state = {}, action) => {
@@ -33,6 +33,20 @@ const users = (state = {}, action) => {
                         ...state[authedUser].answers,
                         [qid]: answer
                     }
+                }
+            }
+        case ADD_USER:
+            const { name, username, password } = action.newUser
+
+            return {
+                ...state,
+                [username]: {
+                    id: username,
+                    name,
+                    password,
+                    avatarURL: 'https://tylermcginnis.com/would-you-rather/sarah.jpg',
+                    answers: {},
+                    questions: []
                 }
             }
         default:

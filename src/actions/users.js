@@ -5,9 +5,7 @@ export const receiveUsers = (users) => ({
     users
 })
 
-export const adddUser = (newUser) => {
-    return {
-        type: ADD_USER,
-        newUser
-    }
-}
+export const adddUser = (newUser) => ({
+    type: ADD_USER,
+    newUser
+})
