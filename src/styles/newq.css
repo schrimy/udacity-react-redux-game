@@ -1,4 +1,5 @@
 .form-container {
+    width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,15 +8,20 @@
 .newq-form {
     display: flex;
     flex-direction: column;
+    min-width: 300px;
 }
 
 .option-text {
     margin-bottom: 15px;
     text-align: center;
-    text-justify: auto;
+    resize: none;
+    font-family: 'Fredoka One', cursive;
+    padding-top: 15px;
+    line-height: 15px;
 }
 
 .submit-btn {
     font-weight: bold;
     cursor: pointer;
+    padding: 5px;
 }

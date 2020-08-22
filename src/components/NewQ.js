@@ -43,7 +43,7 @@ class NewQ extends Component {
             <div className='form-container'>
                 <h1>Would you rather</h1>
                 <form className='newq-form' onSubmit={this.handleSubmit}>
-                    <textarea  
+                    <textarea
                         value={optionOne}
                         name='optionOne'
                         onChange={this.handleChange}
