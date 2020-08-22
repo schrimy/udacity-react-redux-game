@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { logoutUser } from '../actions/authedUser'
 
@@ -17,10 +17,10 @@ class UserInfo extends Component {
             <div className='user-info'>
                 <Avatar id={user} />
                 {user !== null && (
-                    <Fragment>
-                        <p>Logged in: {user}</p>
-                        <button onClick={this.handleLogOut}>Log out</button>
-                    </Fragment>
+                    <div className='info-text'>
+                        <p className='user-name'>{user}</p>
+                        <button className='login-info-btn' onClick={this.handleLogOut}>Log out</button>
+                    </div>
                 )}
             </div>
         )

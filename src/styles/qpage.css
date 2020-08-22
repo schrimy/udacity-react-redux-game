@@ -4,11 +4,45 @@
     align-items: center;
 }
 
+.qpage-container .avatar {
+    width: 90px;
+    height: 90px;
+    margin-top: 25px;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .option-box {
     border: 1px solid #000;
+    border-radius: 5px;
     padding: 15px;
     margin-bottom: 15px;
     cursor: pointer;
+    width: auto;
+    text-align: center;
+}
+
+.option-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.option-title {
+    font-size: 1.3em;
+}
+
+.stats-numbers {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.option-stats p {
+    margin: 0;
 }
 
 .selected-option {

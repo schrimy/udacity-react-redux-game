@@ -3,6 +3,9 @@
 @import 'newq.css';
 @import 'leaderboard.css';
 @import 'login.css';
+@import 'userinfo.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 html,
 body {
@@ -11,6 +14,16 @@ body {
     border: 0;
     width: 100%;
     height: 100vh;
+    font-family: 'Fredoka One', cursive;
+    box-sizing: border-box;
+}
+
+button {
+    font-family: 'Fredoka One', cursive;
+    border: 1px solid #000;
+    border-radius: 3px;
+    background: none;
+    cursor: pointer;
 }
 
 ul {
@@ -26,26 +39,23 @@ ul {
 
 .header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     justify-content: space-between;
 }
 
 .nav {
     display: flex;
     flex-direction: row;
-    font-weight: bold;
-    margin-left: 25px;
+    align-self: center;
+    margin: 15px 0;
+    font-size: 1.4em;
 }
 
 .nav-btn {
     margin-left: 10px;
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: underline;
     color: #000;
-}
-
-.user-info {
-    margin: 15px 25px 0 0;
 }
 
 .four-o-four {

@@ -46,14 +46,13 @@ class Qpage extends Component {
         })
     }
 
-    handleOptionClick = (evt) => {
-        evt.preventDefault()
+    handleOptionClick = (id) => {
         const { qToShow, authedUser, dispatch } = this.props
 
         dispatch(handleOptionSelected({
             authedUser,
             qId: qToShow.id,
-            answer: evt.target.id
+            answer: id
         }))
     }
 
@@ -69,17 +68,19 @@ class Qpage extends Component {
         return(
             <div className='qpage-container'>
                 <Avatar id={qToShow.author} />
-                <h2>Would you rather</h2>
-                <OptionBox
-                    click={this.handleOptionClick}
-                    id='optionOne'
-                    info={qToShow.optionOne}
-                    votesNum={votesTotal} />
-                <OptionBox
-                    click={this.handleOptionClick}
-                    id='optionTwo'
-                    info={qToShow.optionTwo}
-                    votesNum={votesTotal} />
+                <h1>Would you rather</h1>
+                <div className='options-container'>
+                    <OptionBox
+                        click={this.handleOptionClick}
+                        id='optionOne'
+                        info={qToShow.optionOne}
+                        votesNum={votesTotal} />
+                    <OptionBox
+                        click={this.handleOptionClick}
+                        id='optionTwo'
+                        info={qToShow.optionTwo}
+                        votesNum={votesTotal} />
+                </div>
             </div>
         )
     }

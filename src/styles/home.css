@@ -1,4 +1,6 @@
 .q-container {
+    width: auto;
+    align-self: center;
     display: grid;
     grid-template-rows: repeat(2, auto);
     grid-template-columns: auto;
@@ -13,32 +15,39 @@
     align-items: center;
     list-style: none;
     grid-area: qs;
-    padding: 0;
+    padding: auto;
     margin: 0;
 }
 
 .q-card {
+    width: 300px;
     display: flex;
     flex-direction: row;
+    align-items: center;
     border: 1px solid #000;
-    padding: 10px;
+    border-radius: 5px;
+    padding: 10px 10px 10px 15px;
     margin: 5px 0 5px;
+    text-decoration: none;
+    color: #000;
 }
 
 .q-card section {
-    margin-left: 10px;
+    margin-left: 25px;
 }
 
 .avatar {
-    margin: auto;
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    border: 2px solid #000;
 }
 
 .btn {
     width: auto;
     cursor: pointer;
+    padding: 10px;
+    margin-bottom: 15px;
 }
 
 .btn-active {

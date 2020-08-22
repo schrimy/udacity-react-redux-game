@@ -106,17 +106,17 @@ class Login extends Component {
                     <p>Please Login</p>
                     {status === 'login'
                         ? <form onSubmit={this.handleLogin}>
-                            <input type='text' placeholder='Username' ref='valueOne' value={valueOne} onChange={this.checkLogin} />
-                            <input type='text' placeholder='Password' ref='valueTwo' value={valueTwo} onChange={this.checkLogin} />
-                            <button disabled={true} type='submit' ref='loginSubmit'>Login</button>
-                            <button onClick={this.toSignUp}>Sign Up</button>
+                            <input className='login-text' type='text' placeholder='Username' ref='valueOne' value={valueOne} onChange={this.checkLogin} />
+                            <input className='login-text' type='text' placeholder='Password' ref='valueTwo' value={valueTwo} onChange={this.checkLogin} />
+                            <button className='login-btn' disabled={true} type='submit' ref='loginSubmit'>Login</button>
+                            <button className='login-btn' onClick={this.toSignUp}>Sign Up</button>
                         </form>
                         : <form onSubmit={this.handleSignUp} onChange={this.checkSignUp}>
-                            <input type='text' placeholder='Name' ref='newName' value={newName} onChange={this.checkSignUp}/>
-                            <input type='text' placeholder='Username' ref='newUserName' value={newUserName} onChange={this.checkSignUp}/>
-                            <input type='text' placeholder='Password' ref='newPassword' value={newPassword} onChange={this.checkSignUp}/>
-                            <button disabled={true} type='submit' ref='submitSignUp'>Submit</button>
-                            <button onClick={this.backToLogin}>Cancel</button>
+                            <input className='login-text' type='text' placeholder='Name' ref='newName' value={newName} onChange={this.checkSignUp}/>
+                            <input className='login-text' type='text' placeholder='Username' ref='newUserName' value={newUserName} onChange={this.checkSignUp}/>
+                            <input className='login-text' type='text' placeholder='Password' ref='newPassword' value={newPassword} onChange={this.checkSignUp}/>
+                            <button className='login-btn' disabled={true} type='submit' ref='submitSignUp'>Submit</button>
+                            <button className='login-btn' onClick={this.backToLogin}>Cancel</button>
                         </form>
                     }
                 </div>

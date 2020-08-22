@@ -2,11 +2,14 @@ import React from 'react'
 
 const OptionBox = (props) => {
     return(
-        <div id={props.id} className='option-box' onClick={props.click}>
-            {props.info.text}
+        <div id={props.id} className='option-box' onClick={() => props.click(props.id)}>
+            <div className='option-title'>{props.info.text}</div>
             <div className='option-stats'>
-                <p>{props.info.votes.length} / {props.votesNum}</p>
-                <p>{Math.round((props.info.votes.length / props.votesNum) * 100)}%</p>
+                <h4 className='stats-title'>Voting statistics:</h4>
+                <div className='stats-numbers'>
+                    <p>{props.info.votes.length} / {props.votesNum}</p>
+                    <p>{Math.round((props.info.votes.length / props.votesNum) * 100)}%</p>
+                </div>
             </div>
         </div>
     )
