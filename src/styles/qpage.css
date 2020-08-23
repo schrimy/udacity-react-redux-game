@@ -34,6 +34,7 @@
 
 .option-title {
     font-size: 1.3em;
+    z-index: 0;
 }
 
 .stats-numbers {
@@ -51,12 +52,27 @@
 }
 
 .selected-option {
+    position: relative;
     background-color: #ff00b3;
     color: #000;
     box-shadow: none;
     border-color: #000;
     transition-property: background-color, color, border-color;
     transition: 1s ease-out;
+}
+
+.selected-option .choice-badge {
+    display: block;
+}
+
+.choice-badge {
+    position: absolute;
+    color: #fff;
+    display: none;
+    width: 30px;
+    height: 30px;
+    top: -10px;
+    right: -10px;
 }
 
 .no-click {

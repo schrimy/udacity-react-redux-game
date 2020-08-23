@@ -39,7 +39,9 @@ class Qpage extends Component {
 
     //if question has been answered bu authedUser then show which option selected and stats
     displayAnsweredInfo = (optionSelected) => {
-        document.querySelector(`#${optionSelected}`).classList.add('selected-option')
+        const selectedOption = document.querySelector(`#${optionSelected}`)
+
+        selectedOption.classList.add('selected-option')
         document.querySelectorAll('.option-stats')
         .forEach(stat => {
             stat.removeAttribute('style')
