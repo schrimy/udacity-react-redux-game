@@ -16,6 +16,8 @@ body {
     height: 100vh;
     font-family: 'Fredoka One', cursive;
     box-sizing: border-box;
+    background-color: #202020;
+    color: #fff;
 }
 
 button {
@@ -55,9 +57,18 @@ ul {
     margin-left: 10px;
     cursor: pointer;
     text-decoration: underline;
-    color: #000;
+    color: #fff;
+}
+
+.nav-btn:hover {
+    color: #00ffff;
+}
+
+.nav-btn:focus {
+    text-decoration-color: #00ffff;
 }
 
 .four-o-four {
     align-self: center;
+    color: #fff;
 }

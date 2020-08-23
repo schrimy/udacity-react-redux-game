@@ -72,9 +72,7 @@ class Qlist extends Component {
                 <button className='btn answered' onClick={this.handleAnswered}>Answered</button>
                 <ul className='q-list'>
                     {displayQs.map((id) => (
-                        <li key={id}>
-                            <Qcard id={id} />
-                        </li>
+                        <Qcard key={id} id={id} />
                     ))}
                 </ul>
             </div>

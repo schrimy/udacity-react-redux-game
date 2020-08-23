@@ -8,10 +8,23 @@
 .user-card {
     display: flex;
     flex-direction: row;
-    border: 1px solid #000;
     border-radius: 5px;
     padding: 15px;
     margin: 15px 0;
+}
+
+.user-card:nth-child(odd) {
+    border: 2px solid #00ffff;
+    box-shadow: 2px 2px 6px 1px #00ffff;
+}
+
+.user-card:nth-child(odd) .avatar {
+    border: 2px solid #ff00b3;
+}
+
+.user-card:nth-child(even) {
+    border: 2px solid #ff00b3;
+    box-shadow: -2px 2px 6px 1px #ff00b3;
 }
 
 .user-card-info {

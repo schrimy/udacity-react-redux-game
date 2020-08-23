@@ -20,4 +20,11 @@
 
 .login-info-btn {
     padding: 5px;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.login-info-btn:hover {
+    color: #00ffff;
+    border-color: #00ffff;
 }
