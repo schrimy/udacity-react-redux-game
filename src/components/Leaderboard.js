@@ -9,8 +9,8 @@ const LeaderBoard = (props) => {
     return(
         <div className='leaderboard'>
             <ul>
-                {usersList.map((user) => (
-                    <UserCard key={user.id} id={user.id} />
+                {usersList.map((user, index) => (
+                    <UserCard key={user.id} id={user.id} position={index+=1} />
                 ))}
             </ul>
         </div>
