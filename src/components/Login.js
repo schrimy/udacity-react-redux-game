@@ -16,13 +16,13 @@ class Login extends Component {
     //check entered login field values against store to validate user
     handleLogin = (evt) => {
         evt.preventDefault()
-        const { users, userIds } = this.props
+        const { users, userIds, dispatch, history, location } = this.props
         const { valueOne, valueTwo } = this.state
 
         const validUser = userIds.filter((user) => user === valueOne)
         if(validUser.length > 0 && valueTwo === users[validUser].password) {
-            this.props.dispatch(loginUser(validUser))
-            this.props.history.push(this.props.location.state.from)
+            dispatch(loginUser(validUser))
+            history.push(location.state.from || '/')
         } else {
             alert('Username or password not recognised, please try again')
         }
