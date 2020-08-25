@@ -60,12 +60,13 @@ ul {
     color: #fff;
 }
 
-.nav-btn:hover {
-    color: #00ffff;
+.nav-btn-active {
+    text-decoration-color: #00ffff;
+    color: #ff00b3;
 }
 
-.nav-btn:focus {
-    text-decoration-color: #00ffff;
+.nav-btn:hover {
+    color: #00ffff;
 }
 
 .four-o-four {

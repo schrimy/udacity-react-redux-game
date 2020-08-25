@@ -1,13 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 //TODO: change Link to NavLink
 const Nav = () => {
     return(
         <nav className='nav'>
-            <Link className='nav-btn' to='/'>Home</Link>
-            <Link className='nav-btn' to='/add'>New Q</Link>
-            <Link className='nav-btn' to='/leaderboard' >Leaderboard</Link>
+            <NavLink activeClassName='nav-btn-active' className='nav-btn' exact to='/'>Home</NavLink>
+            <NavLink activeClassName='nav-btn-active' className='nav-btn' to='/add'>New Q</NavLink>
+            <NavLink activeClassName='nav-btn-active' className='nav-btn' to='/leaderboard' >Leaderboard</NavLink>
         </nav>
     )
 }

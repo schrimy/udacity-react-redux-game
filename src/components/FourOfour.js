@@ -1,5 +1,7 @@
 import React from 'react'
 
+//TODO: stylise please
+
 const FourOfour = () => {
     return(
         <div className='four-o-four'>
