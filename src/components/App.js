@@ -15,6 +15,7 @@ import NewQ from './NewQ'
 import Leaderboard from './Leaderboard'
 import FourOfour from './FourOfour'
 import Login from './Login'
+import PrivateRoute from './PrivateRoute'
 
 class App extends Component {
   componentDidMount() {
@@ -32,21 +33,14 @@ class App extends Component {
             <Nav />
             <UserInfo />
           </header>
-          {this.props.loggedIn === true
-            ? <Switch>
-                <Route exact path='/' component={Qlist} />
-                <Route path='/questions/:question_id' component={Qpage} />
-                <Route path='/add' component={NewQ} />
-                <Route path='/leaderboard' component={Leaderboard} />
-                <Route component={FourOfour} />
-              </Switch>
-            : <Switch>
-                <Route exact path={['/add', '/leaderboard', '/', '/questions/:question_id']}>
-                  <Redirect to='/login' />
-                </Route>
-                <Route path='/login' component={Login} />
-                <Route component={FourOfour} />
-              </Switch>}
+          <Switch>
+            <PrivateRoute loggedIn={this.props.loggedIn} exact path='/' component={Qlist} />
+            <PrivateRoute loggedIn={this.props.loggedIn} path='/questions/:question_id' component={Qpage} />
+            <PrivateRoute loggedIn={this.props.loggedIn} path='/add' component={NewQ} />
+            <PrivateRoute loggedIn={this.props.loggedIn} path='/leaderboard' component={Leaderboard} />
+            <Route path='/login' component={Login} />
+            <Route component={FourOfour} />
+          </Switch>
         </div>
     )
   }
