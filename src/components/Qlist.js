@@ -16,14 +16,15 @@ class Qlist extends Component {
         }
     }
 
-    //when requesting unanswered q's help remove those that have been answered
-    answerChecker = (id) => {
-        let match = false
+    //when requesting q's to display send back qIds that either match answered list or not
+    //based on the boolean value sent through from fliter method + id of q from full list
+    answerChecker = (id, toMatch) => {
+        let match = toMatch
         const { userAnswers } = this.props
 
         userAnswers.forEach(answer => {
             if(id === answer) {
-                match = true
+                match = !match
             }
         })
 
@@ -42,7 +43,6 @@ class Qlist extends Component {
     }
 
     //called when aswered btn clicked to show answered qs
-    //TODO: sort order via cross referenced timestamp 
     handleAnswered = (evt) => {
         evt.preventDefault()
         evt.target.classList.add('btn-active')
@@ -57,13 +57,13 @@ class Qlist extends Component {
         const { qIds, userAnswers } = this.props
         const { answered } = this.state
         let displayQs = ''
-
+        //determine which questions to display
         if(!answered) {
-            //if logged out show full q list, logged in = unanswered qs, via userAnswers prop
-            displayQs = userAnswers === null ? qIds : qIds.filter(this.answerChecker)
+            //show unanswered questions
+            displayQs = userAnswers === null ? qIds : qIds.filter(id => this.answerChecker(id, false))
         } else {
             //show users answered questions
-            displayQs = userAnswers
+            displayQs = userAnswers === null ? null : qIds.filter(id => this.answerChecker(id, true))
         }
 
         return(
