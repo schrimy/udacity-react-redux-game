@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import '../styles/app.css'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import LoadingBar from 'react-redux-loading'
 /**
  * Components
@@ -34,10 +34,10 @@ class App extends Component {
             <UserInfo />
           </header>
           <Switch>
-            <PrivateRoute loggedIn={this.props.loggedIn} exact path='/' component={Qlist} />
-            <PrivateRoute loggedIn={this.props.loggedIn} path='/questions/:question_id' component={Qpage} />
-            <PrivateRoute loggedIn={this.props.loggedIn} path='/add' component={NewQ} />
-            <PrivateRoute loggedIn={this.props.loggedIn} path='/leaderboard' component={Leaderboard} />
+            <PrivateRoute loggedIn={this.props.loggedIn} exact path='/' component={<Qlist />} />
+            <PrivateRoute loggedIn={this.props.loggedIn} path='/questions/:question_id' component={<Qpage />} />
+            <PrivateRoute loggedIn={this.props.loggedIn} path='/add' component={<NewQ />} />
+            <PrivateRoute loggedIn={this.props.loggedIn} path='/leaderboard' component={<Leaderboard />} />
             <Route path='/login' component={Login} />
             <Route component={FourOfour} />
           </Switch>

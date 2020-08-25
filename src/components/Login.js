@@ -22,7 +22,7 @@ class Login extends Component {
         const validUser = userIds.filter((user) => user === valueOne)
         if(validUser.length > 0 && valueTwo === users[validUser].password) {
             this.props.dispatch(loginUser(validUser))
-            this.props.history.push(this.props.location.from)
+            this.props.history.push(this.props.location.state.from)
         } else {
             alert('Username or password not recognised, please try again')
         }
@@ -99,7 +99,6 @@ class Login extends Component {
 
     render() {
         const { status, valueOne, valueTwo, newName, newUserName, newPassword } = this.state
-        console.log('login props:', this.props.location)
 
         return(
             <div className='login-container'>
