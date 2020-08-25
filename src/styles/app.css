@@ -70,6 +70,16 @@ ul {
 }
 
 .four-o-four {
+    text-align: center;
     align-self: center;
-    color: #fff;
+    color: #00ffff;
+    text-shadow: 2px 2px #ff00b3;
+    animation: flash 1s linear infinite;
+}
+
+@keyframes flash {
+    50% {
+        color: #ff00b3;
+        text-shadow: 2px 2px #00ffff; 
+    }
 }
