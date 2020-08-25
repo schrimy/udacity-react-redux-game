@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { logoutUser } from '../actions/authedUser'
+import { withRouter } from 'react-router-dom'
 
 import Avatar from './Avatar'
 
@@ -8,6 +9,7 @@ class UserInfo extends Component {
     handleLogOut = (evt) => {
         evt.preventDefault()
         this.props.dispatch(logoutUser())
+        this.props.history.push('/')
     }
 
     render() {
@@ -33,4 +35,4 @@ const mapStateToProps = ({authedUser}) => {
     }
 }
 
-export default connect(mapStateToProps)(UserInfo)
+export default withRouter(connect(mapStateToProps)(UserInfo))

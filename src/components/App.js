@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import '../styles/app.css'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import LoadingBar from 'react-redux-loading'
 /**
  * Components
@@ -33,16 +33,20 @@ class App extends Component {
             <UserInfo />
           </header>
           {this.props.loggedIn === true
-            ? <Fragment>
-                <Switch>
-                  <Route path='/' exact component={Qlist} />
-                  <Route path='/questions/:question_id' component={Qpage} />
-                  <Route path='/add' component={NewQ} />
-                  <Route path='/leaderboard' component={Leaderboard} />
-                  <Route component={FourOfour}/>
-                </Switch>
-              </Fragment>
-            : <Login />}
+            ? <Switch>
+                <Route exact path='/' component={Qlist} />
+                <Route path='/questions/:question_id' component={Qpage} />
+                <Route path='/add' component={NewQ} />
+                <Route path='/leaderboard' component={Leaderboard} />
+                <Route component={FourOfour} />
+              </Switch>
+            : <Switch>
+                <Route exact path={['/add', '/leaderboard', '/', '/questions/:question_id']}>
+                  <Redirect to='/login' />
+                </Route>
+                <Route path='/login' component={Login} />
+                <Route component={FourOfour} />
+              </Switch>}
         </div>
     )
   }
