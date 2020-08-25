@@ -22,8 +22,6 @@ class Login extends Component {
         const validUser = userIds.filter((user) => user === valueOne)
         if(validUser.length > 0 && valueTwo === users[validUser].password) {
             this.props.dispatch(loginUser(validUser))
-            console.log('location shiz:', location.state.from)
-            history.push('/')
         } else {
             alert('Username or password not recognised, please try again')
         }
