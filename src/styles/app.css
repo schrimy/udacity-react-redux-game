@@ -42,15 +42,16 @@ ul {
 .header {
     display: flex;
     flex-direction: column-reverse;
-    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .nav {
     display: flex;
     flex-direction: row;
     align-self: center;
-    margin: 15px 0;
     font-size: 1.4em;
+    grid-column-start: 2;
+    margin: 15px 0;
 }
 
 .nav-btn {
@@ -58,6 +59,10 @@ ul {
     cursor: pointer;
     text-decoration: underline;
     color: #fff;
+}
+
+.nav-btn:first-child {
+    margin-left: 0;
 }
 
 .nav-btn-active {
@@ -88,5 +93,21 @@ ul {
     50% {
         color: #ff00b3;
         text-shadow: 2px 2px #00ffff; 
+    }
+}
+
+@media (min-width: 640px) {
+    .header {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr auto 1fr;
+        margin: 0;
+    }
+}
+
+@media (min-width: 900px) {
+    .nav {
+        grid-column-start: 1;
+        margin-left: 20px;
     }
 }

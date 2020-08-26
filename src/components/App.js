@@ -47,7 +47,7 @@ class App extends Component {
 }
 
 //check that state has been set before trying to load images etc via seeing if authedUSer is set in async intial data action
-const mapStateToProps = ({authedUser}) => {
+const mapStateToProps = ({ authedUser }) => {
   return {
     loggedIn: authedUser !== null
   }

@@ -14,8 +14,10 @@ class Login extends Component {
     }
 
     componentDidUpdate() {
-        if(this.props.authedUser !== null) {
-            this.props.history.push('/')
+        const { history, location, authedUser } = this.props
+
+        if(authedUser !== null) {
+            history.push(location.state.from || '/')
         }
     }
 

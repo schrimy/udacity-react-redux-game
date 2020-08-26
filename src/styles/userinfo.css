@@ -16,6 +16,8 @@
 
 .user-name {
     margin: 0 0 10px 0;
+    max-width: 70px;
+    overflow-wrap: break-word;
 }
 
 .login-info-btn {
@@ -27,4 +29,16 @@
 .login-info-btn:hover {
     color: #00ffff;
     border-color: #00ffff;
+}
+
+@media (min-width: 640px) {
+    .user-info {
+        justify-self: flex-end;
+    }
+}
+
+@media (min-width: 900px) {
+    .user-info {
+        grid-column-start: 3;
+    }
 }

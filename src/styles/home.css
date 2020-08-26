@@ -21,7 +21,7 @@
 }
 
 .q-card {
-    width: 300px;
+    width: 250px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -80,4 +80,41 @@
 
 .answered {
     grid-area: btnTwo;
+}
+
+@media (min-width: 340px) {
+    .q-card {
+        width: 300px;
+    }
+}
+
+@media (min-width: 900px) {
+    .q-container {
+        margin: 0 50px;
+    }
+
+    .q-list {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px;
+    }
+
+    .q-card {
+        width: auto;
+        margin: 0;
+    }
+
+    .q-card p {
+        max-height: 20px;
+        overflow: hidden;
+    }
+
+    .q-card:nth-child(odd) {
+        box-shadow: 0 2px 6px 1px #00ffff;
+    }
+    
+    .q-card:nth-child(even) {
+        box-shadow: 0 2px 6px 1px #ff00b3;
+    }
 }
