@@ -51,11 +51,9 @@
     margin-left: 25px;
 }
 
-.avatar {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 2px solid #00ffff;
+.q-card .avatar {
+    align-self: flex-start;
+    margin-top: 15px;
 }
 
 .btn {
