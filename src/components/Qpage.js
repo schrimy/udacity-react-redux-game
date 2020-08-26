@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import { handleOptionSelected } from '../actions/shared'
 
 import Avatar from './Avatar'
@@ -100,4 +100,4 @@ const mapStateToProps = ({ authedUser, users, questions }, props) => {
     }
 }
 
-export default connect(mapStateToProps)(Qpage)
+export default withRouter(connect(mapStateToProps)(Qpage))

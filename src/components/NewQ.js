@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleNewQ } from '../actions/shared'
+import { withRouter } from 'react-router-dom'
 
 class NewQ extends Component {
     state = {
@@ -28,6 +29,10 @@ class NewQ extends Component {
         }))
         .then(() => {
             this.props.history.push('/')
+        })
+        .catch(err => {
+            console.log('error:', err)
+            alert('There was a problem saving new question, please try again')
         })
 
         this.setState(() => ({
@@ -73,4 +78,4 @@ const mapStateToProps = ({ authedUser }) => {
     }
 }
 
-export default connect(mapStateToProps)(NewQ)
+export default withRouter(connect(mapStateToProps)(NewQ))

@@ -28,8 +28,8 @@
     font-weight: bold;
     cursor: pointer;
     padding: 5px;
-    border: 1px solid #ffff;
-    color: #fff;
+    border: 1px solid #ff00b3;
+    color: #00ffff;
 }
 
 .submit-btn:disabled {
@@ -39,5 +39,6 @@
 }
 
 .submit-btn:hover:enabled {
-    color: #00ffff;
+    color: #ff00b3;
+    border-color: #00ffff;
 }
