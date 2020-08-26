@@ -7,17 +7,17 @@ import { Route, Redirect } from 'react-router-dom'
  */
 
 //chacks if loggedin, if not redirect to login, if so render relevant component and have correct URL
-const PrivateRoute = ({path, component, loggedIn, ...rest}) => {
+const PrivateRoute = ({ path, component, loggedIn, ...rest }) => {
     return(
         <Route
-            {...rest}
+            { ...rest }
             render={() => {
                 return loggedIn ? (
                     component
                 ) : (
                     <Redirect to={{
                         pathname: '/login',
-                        state: {from: path}
+                        state: { from: path }
                     }} />
                 )
             }}

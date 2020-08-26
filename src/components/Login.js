@@ -13,6 +13,12 @@ class Login extends Component {
         newPassword: ''
     }
 
+    componentDidUpdate() {
+        if(this.props.authedUser !== null) {
+            this.props.history.push('/')
+        }
+    }
+
     //check entered login field values against store to validate user
     handleLogin = (evt) => {
         evt.preventDefault()
@@ -126,10 +132,11 @@ class Login extends Component {
     }
 }
 
-const mapStateToProps = ({ users }, { state }) => {
+const mapStateToProps = ({ users, authedUser }, { state }) => {
     return {
         users,
         userIds: Object.keys(users),
+        authedUser,
         state
     }
 }

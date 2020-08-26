@@ -20,7 +20,7 @@ export const handleInitialData = () => {
         .then(([users, questions]) => {
             dispatch(receiveUsers(users))
             dispatch(receiveQuestions(questions))
-            //dispatch(loginUser(AUTHED_ID))
+            dispatch(loginUser(AUTHED_ID))
             dispatch(hideLoading())
         })
         .catch(err => {
