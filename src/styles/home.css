@@ -7,6 +7,7 @@
     grid-template-areas:
     "btnOne btnTwo"
     "qs qs";
+    margin-bottom: 25px;
 }
 
 .q-list {
@@ -29,6 +30,7 @@
     margin: 5px 0 5px;
     text-decoration: none;
     color: #fff;
+    margin-bottom: 15px;
 }
 
 .q-card:nth-child(odd) {

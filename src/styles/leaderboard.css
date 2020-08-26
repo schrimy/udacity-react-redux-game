@@ -3,6 +3,7 @@
     flex-direction: column;
     align-self: center;
     width: auto;
+    margin-bottom: 25px;
 }
 
 .user-card {
@@ -10,7 +11,7 @@
     flex-direction: row;
     border-radius: 5px;
     padding: 15px;
-    margin: 15px 0;
+    margin: 25px 0;
 }
 
 .user-card:nth-child(odd) {
