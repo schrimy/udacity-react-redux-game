@@ -1,5 +1,6 @@
 import { RECEIVE_USERS, ADD_USER } from '../constants/actionTypes'
 import { _saveNewUser } from '../utils/_DATA'
+import { showLoading, hideLoading } from 'react-redux-loading'
 
 export const receiveUsers = (users) => ({
     type: RECEIVE_USERS,
@@ -14,9 +15,11 @@ export const addUser = (newUser) => ({
 
 export const handleNewUser = (newUser) => {
     return (dispatch) => {
+        dispatch(showLoading())
         return _saveNewUser(newUser)
         .then((formattedUser) => {
             dispatch(addUser(formattedUser))
+            dispatch(hideLoading())
         })
     }
 }
