@@ -9,7 +9,7 @@
 .newq-form {
     display: flex;
     flex-direction: column;
-    min-width: 300px;
+    min-width: 260px;
 }
 
 .option-text {
@@ -42,4 +42,12 @@
 .submit-btn:hover:enabled {
     color: #ff00b3;
     border-color: #00ffff;
+}
+
+@media (min-width: 320px) {
+    .newq-form {
+        display: flex;
+        flex-direction: column;
+        min-width: 300px;
+    }
 }

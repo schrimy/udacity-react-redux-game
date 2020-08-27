@@ -21,7 +21,7 @@
 }
 
 .q-card {
-    width: 250px;
+    width: 220px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -81,6 +81,12 @@
 
 .answered {
     grid-area: btnTwo;
+}
+
+@media (min-width: 320px) {
+    .q-card {
+        width: 250px;
+    }
 }
 
 @media (min-width: 340px) {

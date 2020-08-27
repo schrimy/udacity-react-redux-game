@@ -49,7 +49,7 @@ ul {
     display: flex;
     flex-direction: row;
     align-self: center;
-    font-size: 1.4em;
+    font-size: 1.2em;
     grid-column-start: 2;
     margin: 15px 0;
 }
@@ -93,6 +93,12 @@ ul {
     50% {
         color: #ff00b3;
         text-shadow: 2px 2px #00ffff; 
+    }
+}
+
+@media (min-width: 340px) {
+    .nav {
+        font-size: 1.4em;
     }
 }
 
