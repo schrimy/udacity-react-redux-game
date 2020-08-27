@@ -1,6 +1,13 @@
 import { RECEIVE_USERS, SAVE_ANSWER, ADD_QUESTION, ADD_USER } from '../constants/actionTypes'
 import * as newUser from '../images/new-user.jpg'
 
+/**
+ * reducer that organises the store users state
+ * recieves and stores initial users list, adds a question to user questions parameter,
+ * saves answered question and option selected to relevant user and adds in new user to list
+ * default value of empty obj
+ */
+
 //state here = users slice of store state
 const users = (state = {}, action) => {
     switch (action.type) {

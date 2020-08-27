@@ -7,6 +7,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
+/*
+* general tag rules
+*/
 html,
 body {
     margin: 0;
@@ -33,6 +36,9 @@ ul {
     padding: 0;
 }
 
+/*
+* Main element rules for whole app
+*/
 .App {
     width: 100%;
     display: flex;
@@ -81,6 +87,7 @@ ul {
     border: 2px solid #00ffff;
 }
 
+/*404 page*/
 .four-o-four {
     text-align: center;
     align-self: center;
@@ -89,6 +96,7 @@ ul {
     animation: flash 1s linear infinite;
 }
 
+/*animation for 404 page*/
 @keyframes flash {
     50% {
         color: #ff00b3;
@@ -96,6 +104,9 @@ ul {
     }
 }
 
+/*
+* Media queries for responsive design
+*/
 @media (min-width: 340px) {
     .nav {
         font-size: 1.4em;

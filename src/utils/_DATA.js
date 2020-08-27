@@ -134,7 +134,9 @@ export function _getQuestions () {
   })
 }
 
-function formatUser ({ name, username, password}) {
+//helper function that formats the state for a new user to place
+//into the backend and pass onto the reducer
+function formatUser ({ name, username, password }) {
   return {
     id: username,
     name,
@@ -215,6 +217,7 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
   })
 }
 
+//mocks api async method to save new user info into backend and return the data
 export function _saveNewUser(newUser) {
   return new Promise((res, rej) => {
     const id = newUser.username

@@ -1,14 +1,14 @@
 import { _getUsers, _getQuestions, _saveQuestionAnswer, _saveQuestion } from '../utils/_DATA'
-import { receiveUsers,  } from './users'
+import { receiveUsers } from './users'
 import { receiveQuestions } from './questions'
 import { SAVE_ANSWER, ADD_QUESTION } from '../constants/actionTypes'
 import { showLoading, hideLoading } from 'react-redux-loading'
-//shared event action for when a new q is created so add to questions list and add to user array of questions made
-//also, when a q is answered save user id to option of the question and question answered with option selected to users
 
 /**
  * async / thunk action creators
  */
+//called when app starts up, grabs intial data from mock backend and sends to
+//reducer to populate store state
 export const handleInitialData = () => {
     return (dispatch) => {
         dispatch(showLoading())
@@ -24,6 +24,8 @@ export const handleInitialData = () => {
     }
 }
 
+//called when user slects a question answer, first sends info to backend then
+//dispatches to reducer for store state to record who answered what
 export const handleOptionSelected = (selection) => {
     return (dispatch) => {
         _saveQuestionAnswer({
@@ -38,9 +40,15 @@ export const handleOptionSelected = (selection) => {
                 answer: selection.answer
             }))
         )
+        .catch(err => {
+            alert('error saving selected vote, please try again')
+            console.log('error', err)
+        })
     }
 }
 
+//called when a new quesition is created fromt he form, first saves in backend
+//then dispatches info to reducer to place in store state
 export const handleNewQ = (newQuestionInfo) => {
     return (dispatch) => {
         dispatch(showLoading())

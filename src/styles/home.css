@@ -1,3 +1,6 @@
+/*
+* rules for main / qlist page
+*/
 .q-container {
     width: auto;
     align-self: center;
@@ -33,6 +36,7 @@
     margin-bottom: 15px;
 }
 
+/*alternate colours for question cards*/
 .q-card:nth-child(odd) {
     border: 2px solid #00ffff;
     box-shadow: 2px 2px 6px 1px #00ffff;
@@ -84,6 +88,7 @@
     grid-area: btnTwo;
 }
 
+/*media queries for responsive design*/
 @media (min-width: 320px) {
     .q-card {
         width: 250px;

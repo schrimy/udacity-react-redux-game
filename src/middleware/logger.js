@@ -1,3 +1,4 @@
+//curried function that logs out each action / reducer event and calls next middleware function
 const logger = (store) => (next) => (action) => {
     console.group(action.type)
         console.log('The action: ', action)

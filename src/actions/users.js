@@ -13,6 +13,8 @@ export const addUser = (newUser) => ({
     userName: newUser.id
 })
 
+//thunk action creator, called when a new user signs up, first saves info to backend
+//then dispatches info to reducer to place in store state
 export const handleNewUser = (newUser) => {
     return (dispatch) => {
         dispatch(showLoading())
@@ -20,6 +22,10 @@ export const handleNewUser = (newUser) => {
         .then((formattedUser) => {
             dispatch(addUser(formattedUser))
             dispatch(hideLoading())
+        })
+        .catch(err => {
+            alert('error saving new user, please try again')
+            console.log('error', err)
         })
     }
 }

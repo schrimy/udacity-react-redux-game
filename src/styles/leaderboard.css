@@ -1,3 +1,6 @@
+/*
+* rules for leaderboard page
+*/
 .leaderboard {
     display: flex;
     flex-direction: column;
@@ -58,6 +61,7 @@
     text-shadow: 1px 1px 5px #000;
 }
 
+/*background colours for top three users' ranking*/
 .gold {
     background: repeating-radial-gradient(#fffb00, #ffae00 10%);
 }
@@ -80,6 +84,7 @@
     left: -15px;
 }
 
+/*animation for background ranking colours*/
 @keyframes rotate {
     from {
         transform: rotate(0deg);
@@ -89,6 +94,7 @@
     }
 }
 
+/*media query for responsive design*/
 @media (min-width: 320px) {
     .leaderboard {
         width: auto;

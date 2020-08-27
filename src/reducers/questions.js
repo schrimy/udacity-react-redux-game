@@ -1,5 +1,11 @@
 import { RECEIVE_QUESTIONS, SAVE_ANSWER, ADD_QUESTION } from '../constants/actionTypes'
 
+/**
+ * reducer that organises data for questions slice of store state
+ * receieves and inputs intital data from backend, adds in new question to list
+ * saves user id to relevant question's votes array. Default value of empty obj.
+ */
+
 //state here = quesions slice
 const questions = (state = {}, action) => {
     switch (action.type) {

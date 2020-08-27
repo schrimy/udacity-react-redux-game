@@ -1,3 +1,6 @@
+/*
+* rules for new question component / page
+*/
 .form-container {
     width: auto;
     display: flex;
@@ -44,6 +47,7 @@
     border-color: #00ffff;
 }
 
+/*media query for responsive design*/
 @media (min-width: 320px) {
     .newq-form {
         display: flex;
