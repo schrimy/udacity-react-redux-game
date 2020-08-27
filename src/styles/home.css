@@ -61,14 +61,15 @@
     cursor: pointer;
     padding: 10px;
     margin-bottom: 15px;
-    color: #fff;
-    border: 1px solid #fff;
+    color: #00ffff;
+    border: 1px solid #ff00b3;
     font-size: 1em;
 }
 
 .btn-active {
     color: #000;
     background-color: #00ffff;
+    border-color: #fff;
 }
 
 .btn-active:focus {

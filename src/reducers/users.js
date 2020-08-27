@@ -1,4 +1,5 @@
 import { RECEIVE_USERS, SAVE_ANSWER, ADD_QUESTION, ADD_USER } from '../constants/actionTypes'
+import * as newUser from '../images/new-user.jpg'
 
 //state here = users slice of store state
 const users = (state = {}, action) => {
@@ -44,7 +45,7 @@ const users = (state = {}, action) => {
                     id: action.userName,
                     name,
                     password,
-                    avatarURL: 'https://tylermcginnis.com/would-you-rather/sarah.jpg',
+                    avatarURL: newUser,
                     answers: {},
                     questions: []
                 }
