@@ -1,14 +1,10 @@
 import { _getUsers, _getQuestions, _saveQuestionAnswer, _saveQuestion } from '../utils/_DATA'
 import { receiveUsers,  } from './users'
 import { receiveQuestions } from './questions'
-import { loginUser } from './authedUser'
 import { SAVE_ANSWER, ADD_QUESTION } from '../constants/actionTypes'
 import { showLoading, hideLoading } from 'react-redux-loading'
 //shared event action for when a new q is created so add to questions list and add to user array of questions made
 //also, when a q is answered save user id to option of the question and question answered with option selected to users
-
-//mock up an authorised user
-const AUTHED_ID = 'johndoe'
 
 /**
  * async / thunk action creators
@@ -20,7 +16,6 @@ export const handleInitialData = () => {
         .then(([users, questions]) => {
             dispatch(receiveUsers(users))
             dispatch(receiveQuestions(questions))
-            //dispatch(loginUser(AUTHED_ID))
             dispatch(hideLoading())
         })
         .catch(err => {

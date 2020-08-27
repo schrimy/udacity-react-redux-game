@@ -24,11 +24,10 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }
   
-  //TODO: make sure main components are not mounting until init data is loaded
   render() {
     return (
         <div className="App">
-          <LoadingBar />
+          <LoadingBar style={{backgroundColor: '#ffae00'}} />
           <header className='header'>
             <Nav />
             <UserInfo />

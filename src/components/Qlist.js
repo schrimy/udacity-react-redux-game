@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import Qcard from './Qcard'
 
 class Qlist extends Component {
-    //TODO: does state get set to blank when user logs out?
     state = {
         answered: false
     }
