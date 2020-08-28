@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Udacity REACT-Redux would you rather game
+ 
+## Table of contents
+ 
+* [Overview](#overview)
+* [Instructions](#instructions)
+* [Resources](#resources)
+ 
+## Overview
+ 
+'Would you rather' is an app built using React and Redux where the user has to choose between two answers. It stores the main data in the Redux store, which holds the user and questions state. The user can vote / select from one of two options relevant to the question. Upon doing so the selected question is highlighted and the overall number of votes and percentage is shown for each option.
+ 
+The user can also create new questions, with two possible answers, which is then added to the list of available questions. As each question is answered that particular question is then displayed in the answered questions section. Each user is also ranked according to the number of questions asked and questions answered on the leaderboard screen.
+ 
+I also added the extra functionality of being able to sign up a new user as well as log in as an existing user. If the requested username is already in use an alert is displayed and the user is asked to select a new username. The login also validates if the username and password match to the current list of users.
+ 
+This App works across all major screen sizes and uses 'react-router' in order to navigate via url. However, due to the current 'mocked' backend once the page is refreshed any newly created user is wiped from the store state and backend.
+ 
+ 
+## Instructions
+ 
+* Once the files have been copied over use `yarn add` or `npm i` to install all dependencies.
+* Then, `yarn start` or `npm start` to run the dev server and show in the browser.
+* Run `yarn build` or `npm build` to produce a distribution folder of minified files.
+* For ease of use use the username 'johndoe' and password 'three' to log-in to the app.
+* Alternatively use the sign up button to create your own user profile.
+ 
+ 
+## Resources
+ 
+[Svg-Path-Editor](https://yqnn.github.io/svg-path-editor/) - to create the tick svg file (16/07/2020)
 
-## Available Scripts
+[Pexels](https://www.pexels.com/photo/yawning-cat-1576193/) - New user cat image for avatar (24/08/2020)
 
-In the project directory, you can run:
+[react-router](https://reactrouter.com/web/example/auth-workflow) - way to build out a protected route (25/08/2020)
 
-### `yarn start`
+[codedaily](https://codedaily.io/tutorials/49/Create-a-ProtectedRoute-for-Logged-In-Users-with-Route-Redirect-and-a-Render-Prop-in-React-Router) - way to build out a protected route (25/08/2020)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[MDN](https://developer.mozilla.org/en-US/) - for general definitions and use of syntax
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[stack-overflow](https://stackoverflow.com/) - for general help and use of syntax
