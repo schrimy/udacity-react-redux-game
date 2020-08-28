@@ -28,7 +28,7 @@ This App works across all major screen sizes and uses 'react-router' in order to
  
 ## Resources
  
-[Svg-Path-Editor](https://yqnn.github.io/svg-path-editor/) - to create the tick svg file (16/07/2020)
+[Svg-Path-Editor](https://yqnn.github.io/svg-path-editor/) - to create the tick svg file (23/08/2020)
 
 [Pexels](https://www.pexels.com/photo/yawning-cat-1576193/) - New user cat image for avatar (24/08/2020)
 
