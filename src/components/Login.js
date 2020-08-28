@@ -4,6 +4,10 @@ import { loginUser } from '../actions/authedUser'
 import { handleNewUser } from '../actions/users'
 
 class Login extends Component {
+    /**
+     * local state to determine when btns can be activated and when
+     * it needs to show the sign up screen
+     */
     state = {
         status: 'login',
         valueOne: '',
@@ -13,6 +17,8 @@ class Login extends Component {
         newPassword: ''
     }
 
+    //when updated check to see if now signed in, if true then go to previously
+    //requested page or home page
     componentDidUpdate() {
         const { history, location, authedUser } = this.props
 
@@ -27,7 +33,9 @@ class Login extends Component {
         const { users, userIds, dispatch, history, location } = this.props
         const { valueOne, valueTwo } = this.state
 
+        //checks if login details are valid against current user list
         const validUser = userIds.filter((user) => user === valueOne)
+
         if(validUser.length > 0 && valueTwo === users[validUser].password) {
             dispatch(loginUser(validUser))
             history.push(location.state.from || '/')
@@ -40,8 +48,20 @@ class Login extends Component {
     handleSignUp = (evt) => {
         evt.preventDefault()
         const { newName, newUserName, newPassword } = this.state
+        const { userIds, dispatch } = this.props
 
-        this.props.dispatch(handleNewUser({
+        //check if username is already in use via iterating over current users
+        //if in use return out of function and clear username field and display alert
+        const userNameUsed = userIds.filter((user) => user === newUserName)
+        if(userNameUsed.length !== 0) {
+            alert('username already in use, please choose another and try again')
+            this.setState(() => ({
+                newUserName: ''
+            }))
+            return
+        }
+        //dispatch new user details to db and store
+        dispatch(handleNewUser({
             name: newName,
             username: newUserName,
             password: newPassword
@@ -53,10 +73,11 @@ class Login extends Component {
 
     //render login fields
     backToLogin = (evt) => {
+        //is not always called by button event
         if(evt !== undefined) {
             evt.preventDefault()
         }
-
+        //clear fields and show login fields
         this.setState(() => ({
             status: 'login',
             valueOne: '',
@@ -77,6 +98,7 @@ class Login extends Component {
     }
 
     //check signup fields to enable submit btn
+    //called when sign up input field changes
     checkSignUp = () => {
         const { newName, newUserName, newPassword, submitSignUp } = this.refs
 
@@ -92,6 +114,7 @@ class Login extends Component {
     }
 
     //check login fields to enable submit btn
+    //called when login field is changed
     checkLogin = () => {
         const { valueOne, valueTwo, loginSubmit } = this.refs
 
@@ -104,7 +127,7 @@ class Login extends Component {
             loginSubmit.disabled = false
         }
     }
-
+    //render either login or sign up fields dependent on local state
     render() {
         const { status, valueOne, valueTwo, newName, newUserName, newPassword } = this.state
 
@@ -115,17 +138,58 @@ class Login extends Component {
                     <p>Please Login</p>
                     {status === 'login'
                         ? <form onSubmit={this.handleLogin}>
-                            <input className='login-text' type='text' placeholder='Username' ref='valueOne' value={valueOne} onChange={this.checkLogin} />
-                            <input className='login-text' type='text' placeholder='Password' ref='valueTwo' value={valueTwo} onChange={this.checkLogin} />
-                            <button className='login-btn' disabled={true} type='submit' ref='loginSubmit'>Login</button>
-                            <button className='login-btn' onClick={this.toSignUp}>Sign Up</button>
+                            <input className='login-text'
+                                type='text'
+                                placeholder='Username'
+                                ref='valueOne'
+                                value={valueOne}
+                                onChange={this.checkLogin} />
+                            <input className='login-text'
+                                type='text'
+                                placeholder='Password'
+                                ref='valueTwo'
+                                value={valueTwo}
+                                onChange={this.checkLogin} />
+                            <button className='login-btn'
+                                disabled={true}
+                                type='submit'
+                                ref='loginSubmit'>
+                                    Login
+                            </button>
+                            <button className='login-btn'
+                                onClick={this.toSignUp}>
+                                    Sign Up
+                            </button>
                         </form>
-                        : <form onSubmit={this.handleSignUp} onChange={this.checkSignUp}>
-                            <input className='login-text' type='text' placeholder='Name' ref='newName' value={newName} onChange={this.checkSignUp}/>
-                            <input className='login-text' type='text' placeholder='Username' ref='newUserName' value={newUserName} onChange={this.checkSignUp}/>
-                            <input className='login-text' type='text' placeholder='Password' ref='newPassword' value={newPassword} onChange={this.checkSignUp}/>
-                            <button className='login-btn' disabled={true} type='submit' ref='submitSignUp'>Submit</button>
-                            <button className='login-btn' onClick={this.backToLogin}>Cancel</button>
+                        : <form onSubmit={this.handleSignUp}>
+                            <input className='login-text'
+                                type='text'
+                                placeholder='Name'
+                                ref='newName'
+                                value={newName}
+                                onChange={this.checkSignUp} />
+                            <input className='login-text'
+                                type='text'
+                                placeholder='Username'
+                                ref='newUserName'
+                                value={newUserName}
+                                onChange={this.checkSignUp} />
+                            <input className='login-text'
+                                type='text'
+                                placeholder='Password'
+                                ref='newPassword'
+                                value={newPassword}
+                                onChange={this.checkSignUp} />
+                            <button className='login-btn'
+                                disabled={true}
+                                type='submit'
+                                ref='submitSignUp'>
+                                    Submit
+                            </button>
+                            <button className='login-btn'
+                                onClick={this.backToLogin}>
+                                    Cancel
+                            </button>
                         </form>
                     }
                 </div>
@@ -133,7 +197,8 @@ class Login extends Component {
         )
     }
 }
-
+//state here is from the router to hold previous page request if any
+//rest is used to determine the current user and if logged in
 const mapStateToProps = ({ users, authedUser }, { state }) => {
     return {
         users,

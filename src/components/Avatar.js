@@ -4,7 +4,11 @@ import * as defaultImg from '../images/default-avatar.jpg'
 
 const Avatar = (props) => {
     return(
-        <img className='avatar' src={props.img} alt='user avatar'></img>
+        <img
+            className='avatar'
+            src={props.img}
+            alt='user avatar'>
+        </img>
     )
 }
 

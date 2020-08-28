@@ -6,12 +6,14 @@ import { withRouter } from 'react-router-dom'
 import Avatar from './Avatar'
 
 class UserInfo extends Component {
+    //called when ogout btn clicked dispatches logout to make authedUser null
+    //and redirects user to home page and login screen
     handleLogOut = (evt) => {
         evt.preventDefault()
         this.props.dispatch(logoutUser())
         this.props.history.push('/')
     }
-
+    //displays logout button and user name if logged in
     render() {
         const { user } = this.props
 
@@ -21,7 +23,10 @@ class UserInfo extends Component {
                 {user !== null && (
                     <div className='info-text'>
                         <p className='user-name'>{user}</p>
-                        <button className='login-info-btn' onClick={this.handleLogOut}>Log out</button>
+                        <button className='login-info-btn'
+                            onClick={this.handleLogOut}>
+                            Log out
+                        </button>
                     </div>
                 )}
             </div>
@@ -29,7 +34,7 @@ class UserInfo extends Component {
     }
 }
 
-const mapStateToProps = ({authedUser}) => {
+const mapStateToProps = ({ authedUser }) => {
     return {
         user: authedUser
     }

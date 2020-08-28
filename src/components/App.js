@@ -26,18 +26,32 @@ class App extends Component {
   
   render() {
     return (
-        <div className="App">
-          <LoadingBar style={{backgroundColor: '#ffae00'}} />
+        <div className='App'>
+          <LoadingBar style={{ backgroundColor: '#ffae00' }} />
           <header className='header'>
             <Nav />
             <UserInfo />
           </header>
           <Switch>
-            <PrivateRoute loggedIn={this.props.loggedIn} exact path='/' component={<Qlist />} />
-            <PrivateRoute loggedIn={this.props.loggedIn} path='/questions/:question_id' component={<Qpage />} />
-            <PrivateRoute loggedIn={this.props.loggedIn} path='/add' component={<NewQ />} />
-            <PrivateRoute loggedIn={this.props.loggedIn} path='/leaderboard' component={<Leaderboard />} />
-            <Route path='/login' component={Login} />
+            <PrivateRoute
+              loggedIn={this.props.loggedIn}
+              exact path='/'
+              component={<Qlist />} />
+            <PrivateRoute
+              loggedIn={this.props.loggedIn}
+              path='/questions/:question_id'
+              component={<Qpage />} />
+            <PrivateRoute
+              loggedIn={this.props.loggedIn}
+              path='/add'
+              component={<NewQ />} />
+            <PrivateRoute
+              loggedIn={this.props.loggedIn}
+              path='/leaderboard'
+              component={<Leaderboard />} />
+            <Route
+              path='/login'
+              component={Login} />
             <Route component={FourOfour} />
           </Switch>
         </div>
@@ -45,7 +59,7 @@ class App extends Component {
   }
 }
 
-//check that state has been set before trying to load images etc via seeing if authedUSer is set in async intial data action
+//use authedUser from state to know when to show components
 const mapStateToProps = ({ authedUser }) => {
   return {
     loggedIn: authedUser !== null

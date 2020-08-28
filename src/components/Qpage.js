@@ -7,6 +7,7 @@ import Avatar from './Avatar'
 import OptionBox from './OptionBox'
 
 class Qpage extends Component {
+    //make sure the option vote satst start out invisible
     componentDidMount() {
         document.querySelectorAll('.option-stats')
         .forEach(stat => {
@@ -17,7 +18,7 @@ class Qpage extends Component {
         this.checkUserAnswers()
     }
 
-    //if updated by option selection show which the user chose
+    //if updated by option selection show which the user has chosen
     componentDidUpdate() {
         this.checkUserAnswers()
     }
@@ -37,17 +38,18 @@ class Qpage extends Component {
         })
     }
 
-    //if question has been answered bu authedUser then show which option selected and stats
+    //if question has been answered bu authedUser then show which option selected and stats for both
     displayAnsweredInfo = (optionSelected) => {
         const selectedOption = document.querySelector(`#${optionSelected}`)
 
         selectedOption.classList.add('selected-option')
+        //unhide stats for both options
         document.querySelectorAll('.option-stats')
         .forEach(stat => {
             stat.removeAttribute('style')
         })
     }
-
+    //called when an option is clicked, dispatches action to save which user chose which option
     handleOptionClick = (id) => {
         const { qToShow, authedUser, dispatch } = this.props
 
@@ -59,12 +61,13 @@ class Qpage extends Component {
     }
 
     render() {
+        //which question a re we displaying
         const { qToShow } = this.props
         //if question doesn't exist redirect to 404
         if(qToShow === undefined) {
             return <Redirect to='/404' />
         }
-
+        //determine how many votes this question has had
         const votesTotal = qToShow.optionOne.votes.length + qToShow.optionTwo.votes.length
         
         return(
@@ -87,7 +90,8 @@ class Qpage extends Component {
         )
     }
 }
-
+//maps the passed in question id from url, who is signed in so username can be saved against an answer
+//userAnswers to check if this question has already been answered
 const mapStateToProps = ({ authedUser, users, questions }, props) => {
     //grab param from url / router that passes the question id ':question_id'
     const { question_id } = props.match.params

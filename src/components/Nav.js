@@ -4,9 +4,21 @@ import { NavLink } from 'react-router-dom'
 const Nav = () => {
     return(
         <nav className='nav'>
-            <NavLink activeClassName='nav-btn-active' className='nav-btn' exact to='/'>Home</NavLink>
-            <NavLink activeClassName='nav-btn-active' className='nav-btn' to='/add'>New Q</NavLink>
-            <NavLink activeClassName='nav-btn-active' className='nav-btn' to='/leaderboard' >Leaderboard</NavLink>
+            <NavLink activeClassName='nav-btn-active'
+                className='nav-btn'
+                exact to='/'>
+                    Home
+            </NavLink>
+            <NavLink activeClassName='nav-btn-active'
+                className='nav-btn'
+                to='/add'>
+                    New Q
+            </NavLink>
+            <NavLink activeClassName='nav-btn-active'
+                className='nav-btn'
+                to='/leaderboard' >
+                    Leaderboard
+            </NavLink>
         </nav>
     )
 }

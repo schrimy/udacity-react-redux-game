@@ -82,6 +82,7 @@
     animation: rotate 4s linear infinite;
     top: 10px;
     left: -15px;
+    z-index: -1;
 }
 
 /*animation for background ranking colours*/

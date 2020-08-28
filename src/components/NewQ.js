@@ -4,11 +4,12 @@ import { handleNewQ } from '../actions/shared'
 import { withRouter } from 'react-router-dom'
 
 class NewQ extends Component {
+    //local state to determine when to enable submit button
     state = {
         optionOne: '',
         optionTwo: ''
     }
-
+    //called when input field changes
     handleChange = (evt) => {
         const { value, name } = evt.target
 
@@ -16,25 +17,25 @@ class NewQ extends Component {
             [name]: value
         }))
     }
-
+    //called when the submit btn clicked
     handleSubmit = (evt) => {
         evt.preventDefault()
         const { optionOne, optionTwo } = this.state
-        const { author } = this.props
-
+        const { author, history } = this.props
+        //sends new q info to db / store then redirects to home page
         this.props.dispatch(handleNewQ({
             author,
             optionOneText: optionOne,
             optionTwoText: optionTwo
         }))
         .then(() => {
-            this.props.history.push('/')
+            history.push('/')
         })
         .catch(err => {
             console.log('error:', err)
             alert('There was a problem saving new question, please try again')
         })
-
+        //clears input fields
         this.setState(() => ({
             optionOne: '',
             optionTwo: ''
@@ -71,7 +72,7 @@ class NewQ extends Component {
         )
     }
 }
-
+//authedUser mapped so dispatch of new Q can be associated with user when saved
 const mapStateToProps = ({ authedUser }) => {
     return {
         author: authedUser

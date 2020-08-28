@@ -3,6 +3,9 @@ import { connect } from 'react-redux'
 
 import UserCard from './UserCard'
 
+/**
+ * displays current user rankings looping through props supplied list
+ */
 const LeaderBoard = (props) => {
     const { usersList } = props
 
@@ -10,13 +13,18 @@ const LeaderBoard = (props) => {
         <div className='leaderboard'>
             <ul>
                 {usersList.map((user, index) => (
-                    <UserCard key={user.id} id={user.id} position={index+=1} />
+                    <UserCard
+                        key={user.id}
+                        id={user.id}
+                        position={index+=1} />
                 ))}
             </ul>
         </div>
     )
 }
 
+//maps state usersand orders them according to total of questions asked and answered for each user.
+//higher numbers first.
 const mapStateToProps = ({ users }) => {
     return {
         usersList: Object.values(users)

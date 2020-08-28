@@ -1,5 +1,8 @@
 import React from 'react'
 
+/**
+ * 404 page
+ */
 const FourOfour = () => {
     return(
         <div className='four-o-four'>
