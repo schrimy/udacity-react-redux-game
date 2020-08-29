@@ -21,7 +21,8 @@ class App extends Component {
   componentDidMount() {
     //get initial data
     document.title ='Would you rather'
-    this.props.dispatch(handleInitialData())
+    //calls action creator from mapDispatchToProps
+    this.props.handleInitialData()
   }
   
   render() {
@@ -66,4 +67,4 @@ const mapStateToProps = ({ authedUser }) => {
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, { handleInitialData })(App)

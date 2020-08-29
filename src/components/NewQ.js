@@ -21,13 +21,13 @@ class NewQ extends Component {
     handleSubmit = (evt) => {
         evt.preventDefault()
         const { optionOne, optionTwo } = this.state
-        const { author, history } = this.props
+        const { author, history, handleNewQ } = this.props
         //sends new q info to db / store then redirects to home page
-        this.props.dispatch(handleNewQ({
+        handleNewQ({
             author,
             optionOneText: optionOne,
             optionTwoText: optionTwo
-        }))
+        })
         .then(() => {
             history.push('/')
         })
@@ -79,4 +79,4 @@ const mapStateToProps = ({ authedUser }) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(NewQ))
+export default withRouter(connect(mapStateToProps, { handleNewQ })(NewQ))

@@ -51,13 +51,13 @@ class Qpage extends Component {
     }
     //called when an option is clicked, dispatches action to save which user chose which option
     handleOptionClick = (id) => {
-        const { qToShow, authedUser, dispatch } = this.props
+        const { qToShow, authedUser, handleOptionSelected } = this.props
 
-        dispatch(handleOptionSelected({
+        handleOptionSelected({
             authedUser,
             qId: qToShow.id,
             answer: id
-        }))
+        })
     }
 
     render() {
@@ -104,4 +104,4 @@ const mapStateToProps = ({ authedUser, users, questions }, props) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Qpage))
+export default withRouter(connect(mapStateToProps, { handleOptionSelected })(Qpage))

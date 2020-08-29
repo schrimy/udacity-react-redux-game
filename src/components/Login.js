@@ -30,14 +30,14 @@ class Login extends Component {
     //check entered login field values against store to validate user
     handleLogin = (evt) => {
         evt.preventDefault()
-        const { users, userIds, dispatch, history, location } = this.props
+        const { users, userIds, history, location, loginUser } = this.props
         const { valueOne, valueTwo } = this.state
 
         //checks if login details are valid against current user list
         const validUser = userIds.filter((user) => user === valueOne)
 
         if(validUser.length > 0 && valueTwo === users[validUser].password) {
-            dispatch(loginUser(validUser))
+            loginUser(validUser)
             history.push(location.state.from || '/')
         } else {
             alert('Username or password not recognised, please try again')
@@ -48,7 +48,7 @@ class Login extends Component {
     handleSignUp = (evt) => {
         evt.preventDefault()
         const { newName, newUserName, newPassword } = this.state
-        const { userIds, dispatch } = this.props
+        const { userIds, handleNewUser } = this.props
 
         //check if username is already in use via iterating over current users
         //if in use return out of function and clear username field and display alert
@@ -61,11 +61,11 @@ class Login extends Component {
             return
         }
         //dispatch new user details to db and store
-        dispatch(handleNewUser({
+        handleNewUser({
             name: newName,
             username: newUserName,
             password: newPassword
-        }))
+        })
         .then(() => {
             this.backToLogin()
         })
@@ -207,5 +207,5 @@ const mapStateToProps = ({ users, authedUser }, { state }) => {
         state
     }
 }
-
-export default connect(mapStateToProps)(Login)
+//provides action methods via mapDispatchToProps for direct calling in code
+export default connect(mapStateToProps, { loginUser, handleNewUser })(Login)
