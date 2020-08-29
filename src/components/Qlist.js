@@ -9,13 +9,6 @@ class Qlist extends Component {
         answered: false
     }
 
-    //set initial active button if logged in
-    componentDidMount() {
-        if(this.props.userAnswers !== null) {
-            document.querySelector('.to-answer').classList.add('btn-active')
-        }
-    }
-
     //when requesting q's to display send back qIds that either match answered list or not
     //based on the boolean value sent through from filter method + id of q from full list
     //i.e. sends back relevant list of answered or unasnswered questions to display
@@ -69,7 +62,7 @@ class Qlist extends Component {
 
         return(
             <div className='q-container'>
-                <button className='btn to-answer'
+                <button className='btn to-answer btn-active'
                     onClick={this.handleToAnswer}>
                         Unanswered
                     </button>
