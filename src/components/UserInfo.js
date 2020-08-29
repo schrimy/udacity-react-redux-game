@@ -10,7 +10,8 @@ class UserInfo extends Component {
     //and redirects user to home page and login screen
     handleLogOut = (evt) => {
         evt.preventDefault()
-        this.props.dispatch(logoutUser())
+        //use the function to fire action from mapDispatchToProps
+        this.props.logoutUser()
         this.props.history.push('/')
     }
     //displays logout button and user name if logged in
@@ -40,4 +41,5 @@ const mapStateToProps = ({ authedUser }) => {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(UserInfo))
+//uses 2nd connect argument for mapDispatchToProps
+export default withRouter(connect(mapStateToProps, { logoutUser })(UserInfo))
